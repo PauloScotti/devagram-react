@@ -91,6 +91,7 @@ function Publicacao() {
             await feedService.fazerPublicacao(corpoPublicacao);
             router.push('/');
         } catch (error) {
+            alert(error)
             alert('Erro ao salvar publicação!');
         }
     }
