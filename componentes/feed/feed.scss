@@ -1,6 +1,8 @@
+@use "../../styles/variaveis";
+
 .feedContainer {
     padding-bottom: 60px;
-    background-color: $branco;
+    background-color: variaveis.$branco;
     margin-top: 16px;
 
     .postagem {
@@ -18,7 +20,7 @@
 
             strong {
                 font-size: 12px;
-                color: $cinza4;
+                color: variaveis.$cinza4;
             }
         }
 
@@ -38,17 +40,17 @@
                 font-size: 12px;
                 float: left;
                 margin-right: 4px;
-                color: $cinza4;
+                color: variaveis.$cinza4;
             }
 
             p.descricao {
                 font-size: 12px;
                 margin: 0 0 2px;
-                color: $cinza4;
+                color: variaveis.$cinza4;
 
                 .exibirDescricaoCompleta {
                     font-size: 12px;
-                    color: $corPrimaria3;
+                    color: variaveis.$corPrimaria3;
                     margin-left: 4px;
                     cursor: pointer;
                 }
@@ -64,13 +66,13 @@
                 }
 
                 .quantidadeCurtidas {
-                    font-family: $fontLight;
+                    font-family: variaveis.$fontLight;
                     font-size: 10px;
-                    color: $cinza4;
+                    color: variaveis.$cinza4;
 
                     strong {
                         font-size: 10px;
-                        color: $cinza4;
+                        color: variaveis.$cinza4;
                     }
                 }
             }
@@ -94,12 +96,12 @@
                 border: none;
                 outline: none;
                 font-size: 12px;
-                color: $cinza2;
+                color: variaveis.$cinza2;
             }
         }
     }
 
-    @media screen and (min-width: $desktopBreakpoint) {
+    @media screen and (min-width: variaveis.$desktopBreakpoint) {
         padding-top: 8px;
         margin-top: 0px;
 
@@ -126,7 +128,7 @@
 
                 .btnPublicacao {
                     background-color: transparent;
-                    color: $corPrimaria;
+                    color: variaveis.$corPrimaria;
                     outline: none;
                     border: none;
                     font-size: 12px;

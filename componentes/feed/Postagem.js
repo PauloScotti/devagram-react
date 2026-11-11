@@ -130,7 +130,7 @@ export default function Postagem({
                     />
 
                     <span className="quantidadeCurtidas">
-                        Curtido por <strong> {curtidasPostagem.length} pessoas</strong>
+                        Curtido por <strong> {curtidasPostagem.length} {curtidasPostagem.length === 1 ? 'pessoa' : 'pessoas'}</strong>
                     </span>
                 </div>
 

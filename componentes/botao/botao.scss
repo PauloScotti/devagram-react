@@ -1,12 +1,14 @@
+@use "../../styles/variaveis";
+
 @mixin botaoPrimario {
-    background-color: $corPrimaria;
-    color: $branco;
+    background-color: variaveis.$corPrimaria;
+    color: variaveis.$branco;
 }
 
 @mixin botaoInvertido {
-    background-color: $branco;
-    color: $corPrimaria;
-    border: 1px solid $corPrimaria;
+    background-color: variaveis.$branco;
+    color: variaveis.$corPrimaria;
+    border: 1px solid variaveis.$corPrimaria;
 }
 
 .btn {

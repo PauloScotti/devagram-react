@@ -1,3 +1,5 @@
+@use "../../styles/variaveis";
+
 .loadingContainer {
     display: flex;
     justify-content: center;
@@ -16,10 +18,10 @@
             width: 64px;
             height: 64px;
             margin: 8px;
-            border: 8px solid $corPrimaria;
+            border: 8px solid variaveis.$corPrimaria;
             border-radius: 50%;
             animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-            border-color: $corPrimaria transparent transparent transparent;
+            border-color: variaveis.$corPrimaria transparent transparent transparent;
         }
         
         div:nth-child(1) {

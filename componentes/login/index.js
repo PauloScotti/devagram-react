@@ -79,7 +79,7 @@ export default function Login({ aposAutenticacao }) {
                         tipo="password"
                         aoAlterarValor={e => setSenha(e.target.value)}
                         valor={senha}
-                        mensagemValidacao="Precisa ter pelo menos 3 caracteres"
+                        mensagemValidacao="Precisa ter pelo menos 4 caracteres"
                         exibirMensagemValidacao={senha && !validarSenha(senha)}
                     />
 

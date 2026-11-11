@@ -1,5 +1,7 @@
+@use "../../styles/variaveis";
+
 .paginaPublicacao {
-    background-color: $branco;
+    background-color: variaveis.$branco;
 
     .cabecalhoComAcoes {
         &.segundaEtapa {
@@ -42,8 +44,8 @@
             }
 
             .btn {
-                background-color: $corPrimaria3;
-                color: $branco;
+                background-color: variaveis.$corPrimaria3;
+                color: variaveis.$branco;
                 width: 70%;
                 margin: auto;
                 padding: 12px;
@@ -78,14 +80,14 @@
                 resize: none;
                 margin-left: 16px;
                 font-size: 12px;
-                font-family: $fontLight;
+                font-family: variaveis.$fontLight;
                 flex: 1;
-                color: $cinza2;
+                color: variaveis.$cinza2;
             }
         }
     }
 
-    @media screen and (min-width: $desktopBreakpoint) {
+    @media screen and (min-width: variaveis.$desktopBreakpoint) {
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -102,7 +104,7 @@
 
                 .textoDragAndDrop {
                     text-align: center;
-                    color: $cinza4;
+                    color: variaveis.$cinza4;
                     margin-bottom: 30px;
                 }
             }

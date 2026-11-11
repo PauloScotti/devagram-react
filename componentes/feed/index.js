@@ -7,7 +7,7 @@ const feedService = new FeedService();
 export default function Feed({ usuarioLogado, usuarioPerfil }) {
     const [listaDePostagens, setListaDePostagens] = useState([]);
 
-    useEffect(async () => {
+    const carregarPostagens = async () => {
         setListaDePostagens([]);
         const { data } = await feedService.carregarPostagens(usuarioPerfil?._id);
 
@@ -15,7 +15,7 @@ export default function Feed({ usuarioLogado, usuarioPerfil }) {
             {
                 id: postagem._id,
                 usuario: {
-                    id: postagem.userId,
+                    id: postagem.idUsuario,
                     nome: postagem?.usuario?.nome || usuarioPerfil?.nome,
                     avatar: postagem?.usuario?.avatar || usuarioPerfil?.avatar
                 },
@@ -30,6 +30,10 @@ export default function Feed({ usuarioLogado, usuarioPerfil }) {
         ));
 
         setListaDePostagens(postagensFormatadas);
+    };
+
+    useEffect(() => {
+        carregarPostagens();
     }, [usuarioLogado, usuarioPerfil]);
 
     if (!listaDePostagens.length) {

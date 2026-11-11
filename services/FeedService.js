@@ -17,7 +17,7 @@ export default class FeedService extends DevagramApiService {
     }
 
     async alterarCurtida(idPostagem) {
-        return this.put(`/like?id=${idPostagem}`);
+        return this.put(`/likes?id=${idPostagem}`);
     }
 
     async fazerPublicacao(dadosPublicacao) {

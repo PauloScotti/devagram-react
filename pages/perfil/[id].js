@@ -28,13 +28,12 @@ function Perfil({ usuarioLogado }) {
         return router.query.id === 'eu';
     }
 
-    useEffect(async () => {
+    useEffect(() => {
         if (!router.query.id) {
             return;
         }
 
-        const dadosPerfil = await obterPerfil(router.query.id);
-        setUsuario(dadosPerfil);
+        obterPerfil(router.query.id).then(setUsuario);
     }, [router.query.id]);
 
     return (

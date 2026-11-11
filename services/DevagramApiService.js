@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { LoadingHelper } from '../helpers/LoadingHelper';
+import { encerrarSessao } from '../utils/sessao';
 
 export default class DevagramApiService {
     constructor() {
@@ -22,14 +23,30 @@ export default class DevagramApiService {
             return config;
         });
 
-        this.axios.interceptors.response.use((response) => {
+        const aoTerminar = () => {
             this.quantidadeRequisicoes--;
             if (this.quantidadeRequisicoes === 0) {
                 LoadingHelper.ocultar();
             }
+        };
 
-            return response;
-        });
+        this.axios.interceptors.response.use(
+            (response) => {
+                aoTerminar();
+                return response;
+            },
+            (erro) => {
+                // Sem isto, uma requisição com erro deixava o "carregando" preso na tela.
+                aoTerminar();
+
+                // Token expirado ou inválido: encerra a sessão e volta para o login.
+                if (erro?.response?.status === 401 && localStorage.getItem('token')) {
+                    encerrarSessao();
+                    window.location.href = '/';
+                }
+                return Promise.reject(erro);
+            }
+        );
     }
 
     post(url, data) {
