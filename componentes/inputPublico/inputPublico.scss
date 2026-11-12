@@ -1,14 +1,16 @@
+@use "../../styles/variaveis";
+
 .inputPublicoContainer {
     .inputPublico {
         display: flex;
         padding-bottom: 10px;
-        border-bottom: 1px solid $corPrimaria;
+        border-bottom: 1px solid variaveis.$corPrimaria;
         margin-bottom: 25px;
 
         input {
             border: none;
             outline: none;
-            color: $corPrimaria;
+            color: variaveis.$corPrimaria;
             flex: 1;
             margin-left: 12px;
         }

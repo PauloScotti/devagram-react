@@ -1,3 +1,5 @@
+@use "../../styles/variaveis";
+
 .paginaCadastro {
     .uploadImagemContainer {
         text-align: center;
@@ -22,7 +24,7 @@
         }
     }
 
-    @media screen and (min-width: $desktopBreakpoint) {
+    @media screen and (min-width: variaveis.$desktopBreakpoint) {
         .rodapePaginaPublica {
             display: flex;
             justify-content: center;

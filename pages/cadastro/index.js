@@ -4,7 +4,7 @@ import Link from "next/link";
 import Botao from "../../componentes/botao";
 import InputPublico from "../../componentes/inputPublico";
 import UploadImagem from "../../componentes/uploadImagem";
-import { validarEmail, validarSenha, validarNome, validarConfirmacaoSenha } from "../../utils/validadores";
+import { validarEmail, validarSenhaNova, validarNome, validarConfirmacaoSenha } from "../../utils/validadores";
 import UsuarioService from "../../services/UsuarioService";
 
 import imagemLogo from "../../public/imagens/logo.svg";
@@ -29,7 +29,7 @@ export default function Cadastro() {
         return (
             validarNome(nome)
             && validarEmail(email)
-            && validarSenha(senha)
+            && validarSenhaNova(senha)
             && validarConfirmacaoSenha(senha, confirmacaoSenha)
         );
     }
@@ -113,8 +113,8 @@ export default function Cadastro() {
                         tipo="password"
                         aoAlterarValor={e => setSenha(e.target.value)}
                         valor={senha}
-                        mensagemValidacao="Precisa de pelo menos 3 caracteres"
-                        exibirMensagemValidacao={senha && !validarSenha(senha)}
+                        mensagemValidacao="Precisa de pelo menos 8 caracteres"
+                        exibirMensagemValidacao={senha && !validarSenhaNova(senha)}
                     />
 
                     <InputPublico

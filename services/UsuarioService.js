@@ -1,4 +1,5 @@
 import DevagramApiService from "./DevagramApiService";
+import { encerrarSessao } from "../utils/sessao";
 
 export default class UsuarioService extends DevagramApiService {
     async login(credenciais) {
@@ -17,11 +18,7 @@ export default class UsuarioService extends DevagramApiService {
     }
 
     async logout() {
-        localStorage.removeItem("nome");
-        localStorage.removeItem("email");
-        localStorage.removeItem("token");
-        localStorage.removeItem("id");
-        localStorage.removeItem("avatar");
+        encerrarSessao();
     }
 
     async cadastro(dados) {

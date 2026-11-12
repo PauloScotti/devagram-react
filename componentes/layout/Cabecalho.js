@@ -20,15 +20,17 @@ export default function Cabecalho() {
     }
 
     const aoPesquisar = async (e) => {
-        setTermoPesquisado(e.target.value);
+        // Usa o valor digitado agora: o estado ainda guarda o termo anterior.
+        const termo = e.target.value;
+        setTermoPesquisado(termo);
         setResultadoPesquisa([]);
 
-        if (e.target.value.length < 3) {
+        if (termo.length < 3) {
             return;
         }
 
         try {
-            const { data } = await usuarioService.pesquisar(termoPesquisado);
+            const { data } = await usuarioService.pesquisar(encodeURIComponent(termo));
             setResultadoPesquisa(data);
         } catch (e) {
             alert('Erro ao pesquisar usuario. ' + e?.response?.data?.erro);

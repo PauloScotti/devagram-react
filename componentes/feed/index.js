@@ -7,15 +7,21 @@ const feedService = new FeedService();
 export default function Feed({ usuarioLogado, usuarioPerfil }) {
     const [listaDePostagens, setListaDePostagens] = useState([]);
 
-    useEffect(async () => {
+    const carregarPostagens = async () => {
         setListaDePostagens([]);
-        const { data } = await feedService.carregarPostagens(usuarioPerfil?._id);
+        let data;
+        try {
+            ({ data } = await feedService.carregarPostagens(usuarioPerfil?._id));
+        } catch {
+            // 401 já é tratado no serviço (encerra a sessão); outros erros deixam o feed vazio.
+            return;
+        }
 
         const postagensFormatadas = data.map((postagem) => (
             {
                 id: postagem._id,
                 usuario: {
-                    id: postagem.userId,
+                    id: postagem.idUsuario,
                     nome: postagem?.usuario?.nome || usuarioPerfil?.nome,
                     avatar: postagem?.usuario?.avatar || usuarioPerfil?.avatar
                 },
@@ -30,6 +36,10 @@ export default function Feed({ usuarioLogado, usuarioPerfil }) {
         ));
 
         setListaDePostagens(postagensFormatadas);
+    };
+
+    useEffect(() => {
+        carregarPostagens();
     }, [usuarioLogado, usuarioPerfil]);
 
     if (!listaDePostagens.length) {

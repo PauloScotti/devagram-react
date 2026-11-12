@@ -1,5 +1,7 @@
+@use "../../styles/variaveis";
+
 .cabecalhoPrincipal {
-    border-bottom: 0.5px solid $cinza1;
+    border-bottom: 0.5px solid variaveis.$cinza1;
 
     .conteudoCabecalhoPrincipal {
         display: flex;
@@ -26,17 +28,17 @@
             }
 
             input {
-                background-color: $corPrimaria4;
+                background-color: variaveis.$corPrimaria4;
                 border: none;
                 outline: none;
                 font-size: 12px;
                 padding: 8px 8px 8px 36px;
-                font-family: $fontLight;
+                font-family: variaveis.$fontLight;
                 border-radius: 4px;
-                color: $corPrimaria;
+                color: variaveis.$corPrimaria;
 
                 &:focus {
-                    border: 1px solid $corPrimaria;
+                    border: 1px solid variaveis.$corPrimaria;
                 }
             }
         }
@@ -44,7 +46,7 @@
 
     .resultadoPesquisaContainer {
         position: absolute;
-        background-color: $branco;
+        background-color: variaveis.$branco;
         width: 100%;
         z-index: 9;
 
@@ -53,7 +55,7 @@
             padding: 10px 16px;
 
             &:hover {
-                background-color: $cinza;
+                background-color: variaveis.$cinza;
             }
 
             .avatar {
@@ -66,14 +68,14 @@
                 > * {
                     display: block;
                     font-size: 12px;
-                    color: $cinza4;
+                    color: variaveis.$cinza4;
                 }
             }
         }
     }
 
-    @media screen and (min-width: $desktopBreakpoint) {
-        background-color: $branco;
+    @media screen and (min-width: variaveis.$desktopBreakpoint) {
+        background-color: variaveis.$branco;
         border: none;
         margin-bottom: 30px;
 
@@ -112,7 +114,7 @@
             cursor: pointer;
             right: 0;
             left: 7%;
-            box-shadow: 0px 4px 5px $cinza1;
+            box-shadow: 0px 4px 5px variaveis.$cinza1;
         }
     }
 }
