@@ -9,7 +9,13 @@ export default function Feed({ usuarioLogado, usuarioPerfil }) {
 
     const carregarPostagens = async () => {
         setListaDePostagens([]);
-        const { data } = await feedService.carregarPostagens(usuarioPerfil?._id);
+        let data;
+        try {
+            ({ data } = await feedService.carregarPostagens(usuarioPerfil?._id));
+        } catch {
+            // 401 já é tratado no serviço (encerra a sessão); outros erros deixam o feed vazio.
+            return;
+        }
 
         const postagensFormatadas = data.map((postagem) => (
             {
